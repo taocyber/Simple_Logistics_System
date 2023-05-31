@@ -17,8 +17,8 @@
     </div>
     <div class="welcome-title">
       <div style="font-size: 30px;font-weight: bold">欢迎来到我们的世界</div>
-      <div style="margin-top: 10px">111</div>
-      <div style="margin-top: 10px">111</div>
+      <div style="margin-top: 10px">自由才是这个世界的第一要义</div>
+      <div style="margin-top: 10px"></div>
     </div>
 
 
