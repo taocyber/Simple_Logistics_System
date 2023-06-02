@@ -2,8 +2,6 @@
 
 
 
-
-
 </script>
 
 <template>
@@ -18,9 +16,15 @@
 
 <!--登陆界面表单区域-->
     <div >
-   <transition name="el-fade-in-linear">
-     <router-view name="login"></router-view>
-   </transition>
+
+     <router-view name="login" v-slot="{Component}">
+
+       <transition name="el-fade-in-linear">
+           <component :is="Component"/>
+       </transition>
+
+     </router-view>
+
 
     </div>
 
@@ -28,9 +32,12 @@
     <!--  注册界面表单区域-->
     <div style="text-align: center; margin: 200px 20px 20px 950px">
 
-    <transition name="el-fade-in-linear">
-      <router-view name="register"></router-view>
-    </transition>
+      <router-view name="register" v-slot="{Component}">
+        <transition name="el-fade-in-linear">
+          <component :is="Component"/>
+        </transition>
+      </router-view>
+
 
 
     </div>

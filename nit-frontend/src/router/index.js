@@ -22,8 +22,7 @@ const router = createRouter({
                 components:{
                     register:RegisterPage
                 }
-
-            }
+        }
 
 
         ]
