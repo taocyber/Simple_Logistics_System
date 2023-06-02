@@ -39,7 +39,7 @@ const login = () => {
 
 <template>
   <!--登录界面设计-->
-  <div style="text-align: center; margin: 50px 100px">
+  <div style="text-align: center; width: 300px;margin: 300px 20px 20px 1050px">
 
     <!--       登录行设计-->
     <div style="margin-top: 100px;font-size: 14px" >
@@ -47,6 +47,7 @@ const login = () => {
       加入@keydown.enter.native事件，$refs.passwordInput.focus()将焦点切换到密码框-->
       <el-input v-model="form.username" type="text" placeholder="用户名/邮箱"
                 @keydown.enter.native="$refs.passwordInput.focus()">
+<!--        用户图标-->
         <template #prefix>
           <el-icon slot="prefix"><User /></el-icon>
         </template>
@@ -55,6 +56,7 @@ const login = () => {
       <el-input ref="passwordInput" v-model="form.password" type="password"
                 style="margin-top: 20px" placeholder="密码"
                 @keyup.enter.native="login()">
+<!--        密码图标-->
         <template #prefix>
           <el-icon><Lock /></el-icon>
         </template>
@@ -86,7 +88,7 @@ const login = () => {
     </el-divider>
 
     <div>
-      <el-button style="width: 150px" type="warning" color="#FF8C00" plain>注册账号</el-button>
+      <el-button @click="router.push('/register')" style="width: 150px" type="warning" color="#FF8C00" plain>注册账号</el-button>
     </div>
 
 

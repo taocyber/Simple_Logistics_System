@@ -16,16 +16,30 @@
       <div style="margin-top: 10px"></div>
     </div>
 
+<!--登陆界面表单区域-->
+    <div >
+   <transition name="el-fade-in-linear">
+     <router-view name="login"></router-view>
+   </transition>
 
-    <div style="width: 490px;height: 300px;margin: 300px 20px 20px 950px">
+    </div>
 
-      <router-view/>
+
+    <!--  注册界面表单区域-->
+    <div style="text-align: center; margin: 200px 20px 20px 950px">
+
+    <transition name="el-fade-in-linear">
+      <router-view name="register"></router-view>
+    </transition>
+
 
     </div>
 
 
 
   </div>
+
+
 
 </template>
 
