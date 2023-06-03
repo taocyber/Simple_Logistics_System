@@ -1,6 +1,29 @@
 spring:
+#数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/template?useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
+
+#配置email
+  mail:
+    default-encoding: UTF-8
+    host: smtp.qq.com
+    port: 587
+    username: 2450924006@qq.com
+    password: laakgciwupcpecgj
+    properties:
+      from: 2450924006@qq.com
+      mail:
+        smtp:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+
+#redis配置
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6379
+      connect-timeout: 3000

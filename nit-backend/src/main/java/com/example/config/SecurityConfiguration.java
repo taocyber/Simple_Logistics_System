@@ -40,6 +40,7 @@ public class SecurityConfiguration {
                                               PersistentTokenRepository repository )  throws Exception {
         return http
                 .authorizeHttpRequests()
+                .requestMatchers("/api/auth/**").permitAll()  //验证相关全部放行
                 .anyRequest().authenticated()
                 .and()
                 //登录表单

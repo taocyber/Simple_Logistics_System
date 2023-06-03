@@ -3,6 +3,7 @@ import {EditPen, Lock, Message, User} from "@element-plus/icons-vue";
 import router from "@/router";
 import {reactive, ref} from "vue";
 import {ElMessage} from "element-plus";
+import {post} from "@/net";
 
 
 //表单内容绑定
@@ -84,8 +85,18 @@ const register =() =>{
       }
 
     })
-
 }
+//邮件验证，获取验证码
+const validateEmail = () =>{
+      post('/api/auth/valid-email',{
+        email: form.email
+      },(message) =>{
+        ElMessage.success(message)
+          }
+
+      )
+}
+
 
 </script>
 
@@ -155,7 +166,7 @@ const register =() =>{
           </el-col>
           <!--        ’获取验证码‘按钮,-->
           <el-col span="6" >
-            <el-button type="success" :disabled="!isEmailvalid" style="width: 80px">获取验证码</el-button>
+            <el-button type="success" @click="validateEmail" :disabled="!isEmailvalid" style="width: 80px">获取验证码</el-button>
           </el-col>
         </el-row>
       </el-form-item>
