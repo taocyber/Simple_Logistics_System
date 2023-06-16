@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/nit.iml" filepath="$PROJECT_DIR$/nit.iml" />
-      <module fileurl="file://$PROJECT_DIR$/nit-frontend/nit-frontend.iml" filepath="$PROJECT_DIR$/nit-frontend/nit-frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pls.iml" filepath="$PROJECT_DIR$/pls.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nit-frontend/pls-frontend.iml" filepath="$PROJECT_DIR$/nit-frontend/pls-frontend.iml" />
     </modules>
   </component>
 </project>
