@@ -19,8 +19,8 @@ const dialogVisible = ref(false);
 const currentPersonnel = reactive({});
 
 const showDetail = (personnel) => {
-  currentPersonnel.name = personnel.name;
   currentPersonnel.number = personnel.number;
+  currentPersonnel.name = personnel.name;
   currentPersonnel.gender = personnel.gender;
   currentPersonnel.data = personnel.data;
   currentPersonnel.position= personnel.position;
@@ -38,9 +38,44 @@ function expurgate(row) {
   // 删除员工数据
 }
 
-function addEmployee() {
-  // 新增员工数据
-}
+const addPersonnel = () => {
+// 在表格中新增一行数据，同时关闭新增员工数据弹窗
+  const newPerson = {
+    number: newPersonnel.number,
+    name: newPersonnel.name,
+    gender: newPersonnel.gender,
+    data: newPersonnel.data,
+    position: newPersonnel.position,
+    age: newPersonnel.age,
+    contact: newPersonnel.contact,
+    department: newPersonnel.department,
+  };
+  tableData.push(newPerson);
+  addDialogVisible.value = false;
+// 清空新增员工数据表单
+  newPersonnel.number = '';
+  newPersonnel.name = '';
+  newPersonnel.gender = '';
+  newPersonnel.age = '';
+  newPersonnel.data = '';
+  newPersonnel.contact = '';
+  newPersonnel.position = '';
+  newPersonnel.department = '';
+};
+
+// 新增员工数据取消
+const addCancel = () => {
+// 关闭新增员工数据弹窗，并清空新增员工数据表单
+  addDialogVisible.value = false;
+  newPersonnel.number = '';
+  newPersonnel.name = '';
+  newPersonnel.gender = '';
+  newPersonnel.age = '';
+  newPersonnel.data = '';
+  newPersonnel.contact = '';
+  newPersonnel.position = '';
+  newPersonnel.department = '';
+};
 </script>
 
 
@@ -61,10 +96,16 @@ function addEmployee() {
       </template>
       <template #header>
         <el-button type="primary" round style="float: right;margin-right: 20px"
-                   @click="addEmployee">新增</el-button>
+                   @click="addPersonnel">新增</el-button>
       </template>
     </el-table-column>
   </el-table>
+
+  <el-dialog>
+
+
+
+  </el-dialog>
 
   <el-dialog
       v-if="dialogVisible"
@@ -76,23 +117,28 @@ function addEmployee() {
       <el-form-item label="工号：">{{ currentPersonnel.number }}</el-form-item>
       <el-form-item label="姓名：">{{ currentPersonnel.name }}</el-form-item>
       <el-form-item label="性别：">{{ currentPersonnel.gender }}</el-form-item>
-      <el-form-item label="入职日期：">{{ currentPersonnel.data }}</el-form-item>
-      <el-form-item label="职位：">{{ currentPersonnel.position }}</el-form-item>
-
       <el-form-item v-if="dialogVisible" label="年龄：">
         <el-input v-model="currentPersonnel.age" disabled></el-input>
       </el-form-item>
+      <el-form-item label="入职日期：">{{ currentPersonnel.data }}</el-form-item>
       <el-form-item v-if="dialogVisible" label="联系方式：">
         <el-input v-model="currentPersonnel.contact" disabled></el-input>
       </el-form-item>
+      <el-form-item label="职位：">{{ currentPersonnel.position }}</el-form-item>
       <el-form-item v-if="dialogVisible" label="所属部门：">
         <el-input v-model="currentPersonnel.department" disabled></el-input>
       </el-form-item>
+
     </el-form>
     <div slot="footer" class="dialog-footer">
       <el-button @click="dialogVisible = false">关闭</el-button>
     </div>
   </el-dialog>
+
+
+
+
+
 </template>
 
 

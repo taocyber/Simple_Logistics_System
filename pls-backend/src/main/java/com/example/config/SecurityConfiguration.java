@@ -68,9 +68,9 @@ public class SecurityConfiguration {
                 .cors()
                 .configurationSource(this.CorsConfigurationSource())
                 .and()
-//认证异常处理       .exceptionHandling()
-//                .authenticationEntryPoint(this::commence)
-//                .and()
+                .exceptionHandling()//认证异常处理
+                .authenticationEntryPoint(this::commence)
+               .and()
                 .build();
 
         }
@@ -138,9 +138,9 @@ public class SecurityConfiguration {
     }
 
 //    用户请求处理过程中遇到认证异常时,返回处理
-//    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException {
-//        response.setHeader("Content-type", "text/html;charset=UTF-8");//浏览器用utf8来解析返回的数据
-//        response.setCharacterEncoding("utf-8");//告诉servlet用UTF-8转码，而不是用默认的ISO8859
-//        response.getWriter().write(JSONObject.toJSONString(RestBean.failure(401,exception.getMessage())));
-//    }
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException {
+        response.setHeader("Content-type", "text/html;charset=UTF-8");//浏览器用utf8来解析返回的数据
+        response.setCharacterEncoding("utf-8");//告诉servlet用UTF-8转码，而不是用默认的ISO8859
+     response.getWriter().write(JSONObject.toJSONString(RestBean.failure(401,exception.getMessage())));
+   }
 }
